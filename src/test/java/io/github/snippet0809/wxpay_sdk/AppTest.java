@@ -1,8 +1,6 @@
 package io.github.snippet0809.wxpay_sdk;
 
-import io.github.snippet0809.wxpay_sdk.client.WxAppPayClient;
 import io.github.snippet0809.wxpay_sdk.exception.WxPayApiException;
-import io.github.snippet0809.wxpay_sdk.security.SignVerifier;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
