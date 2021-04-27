@@ -4,7 +4,7 @@
     <groupId>io.github.snippet0809</groupId>
     <artifactId>wxpay-sdk</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <name>wxpay-sdk</name>
     <url>https://github.com/snippet0809/wxpay-sdk</url>
 
