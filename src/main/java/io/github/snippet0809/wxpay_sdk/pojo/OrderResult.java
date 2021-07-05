@@ -7,6 +7,9 @@ public class OrderResult {
     @JSONField(name = "prepay_id")
     private String prepayId;
 
+    @JSONField(name = "h5_url")
+    private String h5Url;
+
     public String getPrepayId() {
         return prepayId;
     }
