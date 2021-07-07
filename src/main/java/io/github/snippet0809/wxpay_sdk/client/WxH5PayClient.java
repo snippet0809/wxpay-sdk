@@ -24,9 +24,7 @@ public class WxH5PayClient extends WxPayClient {
      * App支付下单
      */
     public String ordering(OrderBody orderBody) throws IOException, WxPayApiException {
-        String res = wxPayHttpClient.post(WxApi.TRANSACTION_H5, JSONObject.toJSONString(orderBody));
-        OrderResult orderResult = JSONObject.parseObject(res, OrderResult.class);
-        return JSONObject.toJSONString(orderResult);
+        return wxPayHttpClient.post(WxApi.TRANSACTION_H5, JSONObject.toJSONString(orderBody));
     }
 
     /**
