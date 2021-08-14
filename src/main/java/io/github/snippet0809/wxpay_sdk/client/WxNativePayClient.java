@@ -5,8 +5,6 @@ import io.github.snippet0809.wxpay_sdk.constant.WxApi;
 import io.github.snippet0809.wxpay_sdk.exception.WxPayApiException;
 import io.github.snippet0809.wxpay_sdk.pojo.Amount;
 import io.github.snippet0809.wxpay_sdk.pojo.OrderBody;
-import io.github.snippet0809.wxpay_sdk.pojo.OrderResult;
-import io.github.snippet0809.wxpay_sdk.pojo.WakeAppPayParam;
 import io.github.snippet0809.wxpay_sdk.security.SignProducer;
 import io.github.snippet0809.wxpay_sdk.security.SignVerifier;
 
