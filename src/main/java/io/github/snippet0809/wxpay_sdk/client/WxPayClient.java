@@ -43,4 +43,12 @@ public class WxPayClient {
         refundParam.setReason(reason);
         return refund(refundParam);
     }
+
+    /**
+     * 根据transactionId查询订单
+     */
+    public String getTransactionById(String transactionId) throws WxPayApiException, IOException {
+        String url = WxApi.GET_TRANSACTION_BY_ID.replace("{transaction_id}", transactionId).replace("{mchid}", signProducer.getMchId());
+        return wxPayHttpClient.get(url);
+    }
 }
