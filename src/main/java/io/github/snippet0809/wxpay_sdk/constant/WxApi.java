@@ -9,6 +9,7 @@ public interface WxApi {
 
     String REFUND = "https://api.mch.weixin.qq.com/v3/refund/domestic/refunds";
     String GET_TRANSACTION_BY_ID = "https://api.mch.weixin.qq.com/v3/pay/transactions/id/{transaction_id}?mchid={mchid}";
+    String GET_TRANSACTION_BY_OUT_TRADE_NO = "https://api.mch.weixin.qq.com/v3/pay/transactions/out-trade-no/{out_trade_no}?mchid={mchid}";
 
     String CERT_DOWN = "https://api.mch.weixin.qq.com/v3/certificates";
 }

@@ -51,4 +51,12 @@ public class WxPayClient {
         String url = WxApi.GET_TRANSACTION_BY_ID.replace("{transaction_id}", transactionId).replace("{mchid}", signProducer.getMchId());
         return wxPayHttpClient.get(url);
     }
+
+    /**
+     * 根据商户订单号查询
+     */
+    public String getTransactionByOutTradeNo(String outTradeNo) throws WxPayApiException, IOException {
+        String url = WxApi.GET_TRANSACTION_BY_OUT_TRADE_NO.replace("{out_trade_no}", outTradeNo).replace("{mchid}", signProducer.getMchId());
+        return wxPayHttpClient.get(url);
+    }
 }
