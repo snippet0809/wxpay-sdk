@@ -10,6 +10,8 @@ import io.github.snippet0809.wxpay_sdk.security.SignProducer;
 import io.github.snippet0809.wxpay_sdk.security.SignVerifier;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WxPayClient {
 
@@ -58,5 +60,15 @@ public class WxPayClient {
     public String getTransactionByOutTradeNo(String outTradeNo) throws WxPayApiException, IOException {
         String url = WxApi.GET_TRANSACTION_BY_OUT_TRADE_NO.replace("{out_trade_no}", outTradeNo).replace("{mchid}", signProducer.getMchId());
         return wxPayHttpClient.get(url);
+    }
+
+    /**
+     * 关闭订单
+     */
+    public String closeTransaction(String outTradeNo) throws WxPayApiException, IOException {
+        String url = WxApi.CLOSE_TRANSACTION.replace("{out_trade_no}", outTradeNo);
+        Map<String, String> bodyMap = new HashMap<>();
+        bodyMap.put("mchid", signProducer.getMchId());
+        return wxPayHttpClient.post(url, JSONObject.toJSONString(bodyMap));
     }
 }
