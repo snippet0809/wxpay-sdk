@@ -24,29 +24,6 @@ public class WxPayClient {
     }
 
     /**
-     * 申请退款
-     */
-    public String refund(RefundParam refundParam) throws IOException, WxPayApiException {
-        return wxPayHttpClient.post(WxApi.REFUND, JSONObject.toJSONString(refundParam));
-    }
-
-    /**
-     * 简单的退款
-     */
-    public String simpleRefund(String outTradeNo, String outRefundNo, int total, int refund, String reason) throws WxPayApiException, IOException {
-        RefundParam refundParam = new RefundParam();
-        refundParam.setOutTradeNo(outTradeNo);
-        refundParam.setOutRefundNo(outRefundNo);
-        Amount amount = new Amount();
-        amount.setTotal(total);
-        amount.setRefund(refund);
-        amount.setCurrency("CNY");
-        refundParam.setAmount(amount);
-        refundParam.setReason(reason);
-        return refund(refundParam);
-    }
-
-    /**
      * 根据transactionId查询订单
      */
     public String getTransactionById(String transactionId) throws WxPayApiException, IOException {
@@ -70,5 +47,36 @@ public class WxPayClient {
         Map<String, String> bodyMap = new HashMap<>();
         bodyMap.put("mchid", signProducer.getMchId());
         return wxPayHttpClient.post(url, JSONObject.toJSONString(bodyMap));
+    }
+
+    /**
+     * 申请退款
+     */
+    public String refund(RefundParam refundParam) throws IOException, WxPayApiException {
+        return wxPayHttpClient.post(WxApi.REFUND, JSONObject.toJSONString(refundParam));
+    }
+
+    /**
+     * 简单的退款
+     */
+    public String simpleRefund(String outTradeNo, String outRefundNo, int total, int refund, String reason) throws WxPayApiException, IOException {
+        RefundParam refundParam = new RefundParam();
+        refundParam.setOutTradeNo(outTradeNo);
+        refundParam.setOutRefundNo(outRefundNo);
+        Amount amount = new Amount();
+        amount.setTotal(total);
+        amount.setRefund(refund);
+        amount.setCurrency("CNY");
+        refundParam.setAmount(amount);
+        refundParam.setReason(reason);
+        return refund(refundParam);
+    }
+
+    /**
+     * 查询退款订单
+     */
+    public String queryRefund(String outRefundNo) throws WxPayApiException, IOException {
+        String url = WxApi.GET_REFUND.replace("{out_refund_no}", outRefundNo);
+        return wxPayHttpClient.get(url);
     }
 }
