@@ -1,19 +1,6 @@
 # wxpay-sdk
 
-## 一、导入依赖
-
-注意：**该jar包托管在GitHub Packages上，Maven中央库里是没有的**
-
-```xml
-
-<dependency>
-    <groupId>io.github.snippet0809</groupId>
-    <artifactId>wxpay-sdk</artifactId>
-    <version>${wxpay-sdk.version}</version>
-</dependency>
-```
-
-## 二、使用
+## 使用
 
 ```java
 /**
